@@ -14,11 +14,10 @@ function solveEquation(a, b, c) {
 
 "use strict"
 function calculateTotalMortgage(percent, contribution, amount, date) {
-  let totalAmount = [];
-  let S = amount;
-  let P = percent/12;
-  let n = 
-  let payMonth = S * (P + P / (((1 + P) ^ n) - 1));
-  return totalAmount;
+  const amountMonth = (date.getFullYear() - new Date().getFullYear()) * 12 - (+new Date().getMonth()) + date.getMonth(); //считаем колличество месяцев в кредите
+  let percentMonth = +percent / 100 / 12; // считаем процент в месяц
+  let payMouth = (+amount - +contribution) * (percentMonth + percentMonth / (Math.pow((1 + percentMonth), amountMonth) - 1)); // считаеем тело кредита+проценты в месяц
+  let totalAmount = +payMouth * +amountMonth; // считаем все расходы клиента 
+  { console.log(Number(totalAmount.toFixed(2))) }
+  return (Number(totalAmount.toFixed(2)))
 }
-
