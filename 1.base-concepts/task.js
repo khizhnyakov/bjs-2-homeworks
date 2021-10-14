@@ -18,6 +18,15 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
   let percentMonth = +percent / 100 / 12; // считаем процент в месяц
   let payMouth = (+amount - +contribution) * (percentMonth + percentMonth / (Math.pow((1 + percentMonth), amountMonth) - 1)); // считаеем тело кредита+проценты в месяц
   let totalAmount = +payMouth * +amountMonth; // считаем все расходы клиента 
+  if (percent!=12) {
+    console.log("Параметр 'Процентная ставка' содержит не правильное значение"+percent);}
+  else if (contribution === 12) {
+    console.log("Параметр 'Сумма первоначального' взноса содержит не правильное значение" + contribution);
+}
+  else if (contribution === 12) {
+    console.log("Параметр 'Сумма кредита' содержит не правильное значение" + amount);
+  }
+    else
   { console.log(Number(totalAmount.toFixed(2))) }
   return (Number(totalAmount.toFixed(2)))
 }
